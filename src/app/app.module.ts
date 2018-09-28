@@ -89,10 +89,12 @@ import {
 export class MaterialModule {}
 
 import { AppComponent } from './app.component';
+import { LocationTableComponent } from './location-table/location-table.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LocationTableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,79 @@
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="areaCode">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Area Code </th>
+    <td mat-cell *matCellDef="let location"> {{location.areaCode}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="city">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+    <td mat-cell *matCellDef="let location"> {{location.city}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="daylightSavingsTime">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> daylightSavingsTime </th>
+    <td mat-cell *matCellDef="let location"> {{location.daylightSavingsTime}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="fips">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> fips </th>
+    <td mat-cell *matCellDef="let location"> {{location.fips}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="latitude">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> latitude </th>
+    <td mat-cell *matCellDef="let location"> {{location.latitude}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="longitude">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> longitude </th>
+    <td mat-cell *matCellDef="let location"> {{location.longitude}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="county">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> county </th>
+    <td mat-cell *matCellDef="let location"> {{location.county}} </td>
+  </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="state">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> state </th>
+    <td mat-cell *matCellDef="let location"> {{location.state}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="timeZone">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> timeZone </th>
+    <td mat-cell *matCellDef="let location"> {{location.timeZone}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="weatherCode">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> weatherCode </th>
+    <td mat-cell *matCellDef="let location"> {{location.weatherCode}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="zip">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> zip </th>
+    <td mat-cell *matCellDef="let location"> {{location.zip}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="locationDisplayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: locationDisplayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+
+
