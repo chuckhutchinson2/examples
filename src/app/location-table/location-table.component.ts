@@ -1,49 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatCard, MatSort, MatTableDataSource } from '@angular/material';
-
-export interface LocationElement {
-  areaCode: string;
-  city: string;
-  county: string;
-  daylightSavingsTime: string;
-  fips: string;
-  latitude: string;
-  longitude: string;
-  state: string;
-  timeZone: string;
-  weatherCode: string;
-  zip: string;
-}
-
+import { Component, OnInit } from '@angular/core';
+import { LocationService } from '../services/location.service';
+import { LocationDataSource } from '../services/location-data-source.service';
+import { LocationElement } from '../location-element.model';
 // https://raw.githubusercontent.com/chuckhutchinson2/zipcode/master/src/main/resources/locations.json
-const LOCATION_DATA: LocationElement[] = [
-    {
-        areaCode: '631',
-        city: 'Holtsville',
-        county: 'Suffolk',
-        daylightSavingsTime: 'Y',
-        fips: '36103',
-        latitude: '40.8151',
-        longitude: '73.0455',
-        state: 'NY',
-        timeZone: 'EST',
-        weatherCode: 'USNY0677',
-        zip: '501'
-    },
-    {
-        areaCode: '631',
-        city: 'Holtsville',
-        county: 'Suffolk',
-        daylightSavingsTime: 'Y',
-        fips: '36103',
-        latitude: '40.8132',
-        longitude: '73.0476',
-        state: 'NY',
-        timeZone: 'EST',
-        weatherCode: 'USNY0677',
-        zip: '544'
-    },
-];
 
 @Component({
   selector: 'app-location-table',
@@ -52,16 +11,19 @@ const LOCATION_DATA: LocationElement[] = [
 })
 export class LocationTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private locationService: LocationService) {}
 
   locationDisplayedColumns: string[] = ['areaCode', 'city', 'county', 'state', 'zip', 'daylightSavingsTime', 'fips', 'latitude', 'longitude', 'timeZone', 'weatherCode'];
 
-  dataSource = new MatTableDataSource(LOCATION_DATA);
-
-  @ViewChild(MatSort) sort: MatSort;
+  dataSource: LocationDataSource;
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
+    this.dataSource = new LocationDataSource(this.locationService);
+    this.dataSource.loadLocations();
   }
+
+  onRowClicked(row) {
+    console.log('Row clicked: ', row);
+	}
 
 }

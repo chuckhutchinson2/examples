@@ -90,6 +90,7 @@ export class MaterialModule {}
 
 import { AppComponent } from './app.component';
 import { LocationTableComponent } from './location-table/location-table.component';
+import { LocationService } from './services/location.service';
 
 @NgModule({
   declarations: [
@@ -105,7 +106,9 @@ import { LocationTableComponent } from './location-table/location-table.componen
     MatNativeDateModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    LocationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
