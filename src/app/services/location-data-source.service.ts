@@ -34,5 +34,6 @@ export class LocationDataSource implements DataSource<LocationElement> {
 
     disconnect(collectionViewer: CollectionViewer): void {
         this.locationsSubject.complete();
+        this.loadingSubject.complete();
     }
 }
