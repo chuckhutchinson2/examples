@@ -1,0 +1,40 @@
+[
+	{
+		"title" : "Spring Resources",
+		"urls" : [
+			    {
+			        "title": "Building a RESTful Web Service",
+			        "url": "https://spring.io/guides/gs/rest-service/"
+			    },
+			    {
+			        "title": "Building REST Services with Spring",
+			        "url": "https://spring.io/guides/tutorials/rest/"
+			    },
+			    {
+			        "title": "Spring REST Documentation",
+			        "url": "https://spring.io/projects/spring-restdocs"
+			    },
+			    {
+			        "title": "Spring BOOT",
+			        "url": "https://spring.io/projects/spring-boot"
+			    }
+		]
+	},
+	{
+		"title" : "Docker Resources",
+		"urls" : [
+			    {
+			        "title": "Docker",
+			        "url": "https://www.docker.com/"
+			    },
+			    {
+			        "title": "Docker Documentation",
+			        "url": "https://docs.docker.com/"
+			    }
+		]
+	}
+]
+
+
+
+
