@@ -91,11 +91,14 @@ export class MaterialModule {}
 import { AppComponent } from './app.component';
 import { LocationTableComponent } from './location-table/location-table.component';
 import { LocationService } from './services/location.service';
+import { SectionService } from './services/section.service';
+import { SectionComponent } from './section/section.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LocationTableComponent
+    LocationTableComponent,
+    SectionComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +110,8 @@ import { LocationService } from './services/location.service';
     ReactiveFormsModule,
   ],
   providers: [
-    LocationService
+    LocationService,
+    SectionService
   ],
   bootstrap: [AppComponent]
 })
