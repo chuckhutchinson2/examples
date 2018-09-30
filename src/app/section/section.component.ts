@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Section, Url } from '../section.model';
 import { SectionService } from '../services/section.service';
 import { SectionDataSource } from '../services/section-data-source.service';
@@ -75,16 +75,16 @@ const SECTION_DATA: Section[] = [
   styleUrls: ['./section.component.css']
 })
 export class SectionComponent implements OnInit {
+  @Input() sectionJson: string;
 
   constructor(private sectionService: SectionService) {}
 
-  displayedColumns: string[] = ['position'];
   dataSource: SectionDataSource;
   sections: Section[];
 
   ngOnInit() {
     this.dataSource = new SectionDataSource(this.sectionService); 
-    this.dataSource.load().subscribe(sections => this.process(sections))
+    this.dataSource.load(this.sectionJson).subscribe(sections => this.process(sections))
   }
 
   process(sections) {

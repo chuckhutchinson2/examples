@@ -93,12 +93,14 @@ import { LocationTableComponent } from './location-table/location-table.componen
 import { LocationService } from './services/location.service';
 import { SectionService } from './services/section.service';
 import { SectionComponent } from './section/section.component';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LocationTableComponent,
-    SectionComponent
+    SectionComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule,

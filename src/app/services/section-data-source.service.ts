@@ -18,10 +18,10 @@ export class SectionDataSource implements DataSource<Section> {
 
     sections: Section[];
 
-    load() {
+    load(sectionJson) {
     	this.loadingSubject.next(true);
 
-        return this.sectionService.findAll().pipe(
+        return this.sectionService.findAll(sectionJson).pipe(
                 catchError(() => of([])),
                 finalize(() => this.loadingSubject.next(false))
             );

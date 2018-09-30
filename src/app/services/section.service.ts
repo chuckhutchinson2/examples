@@ -10,8 +10,8 @@ export class SectionService {
     constructor(private http:HttpClient) {
     }
 
-    findAll(): Observable<Section[]> {
-        return this.http.get<Section[]>('/sections.json')
+    findAll(sectionJson): Observable<Section[]> {
+        return this.http.get<Section[]>(sectionJson)
             .pipe(
                 map(res => res )
             );
