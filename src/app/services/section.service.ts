@@ -11,7 +11,7 @@ export class SectionService {
     }
 
     findAll(): Observable<Section[]> {
-        return this.http.get<Section[]>('/links.json')
+        return this.http.get<Section[]>('/sections.json')
             .pipe(
                 map(res => res )
             );
