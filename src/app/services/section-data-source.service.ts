@@ -16,14 +16,15 @@ export class SectionDataSource implements DataSource<Section> {
 
 	constructor(private sectionService: SectionService) {}
 
+    sections: Section[];
+
     load() {
     	this.loadingSubject.next(true);
 
-        this.sectionService.findAll().pipe(
+        return this.sectionService.findAll().pipe(
                 catchError(() => of([])),
                 finalize(() => this.loadingSubject.next(false))
-            )
-            .subscribe(sections => this.sectionSubject.next(sections));
+            );
      }
 
     connect(collectionViewer: CollectionViewer): Observable<Section[]> {
@@ -35,4 +36,5 @@ export class SectionDataSource implements DataSource<Section> {
         this.sectionSubject.complete();
         this.loadingSubject.complete();
     }
+
 }

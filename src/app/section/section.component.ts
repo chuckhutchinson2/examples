@@ -80,9 +80,15 @@ export class SectionComponent implements OnInit {
 
   displayedColumns: string[] = ['position'];
   dataSource: SectionDataSource;
+  sections: Section[];
 
   ngOnInit() {
-    this.dataSource = new SectionDataSource(this.sectionService);
-    this.dataSource.load();
+    this.dataSource = new SectionDataSource(this.sectionService); 
+    this.dataSource.load().subscribe(sections => this.process(sections))
+  }
+
+  process(sections) {
+  	this.sections = sections;
+  	console.log (this.sections);
   }
 }
