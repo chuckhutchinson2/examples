@@ -1,0 +1,13 @@
+<div *ngFor="let section of sections">
+	<mat-expansion-panel>
+		<mat-expansion-panel-header>
+			<mat-panel-title>{{section.title}}</mat-panel-title>
+			<mat-panel-description>FAQ and help content</mat-panel-description>
+		</mat-expansion-panel-header>
+		<ul *ngFor="let url of section.urls">
+			<li>
+				<a target="_blank" rel="noopener" href="{{url.url}}">{{url.title}}</a>
+			</li>
+		</ul>
+	</mat-expansion-panel>
+</div>

@@ -91,11 +91,19 @@ export class MaterialModule {}
 import { AppComponent } from './app.component';
 import { LocationTableComponent } from './location-table/location-table.component';
 import { LocationService } from './services/location.service';
+import { SectionService } from './services/section.service';
+import { GetIPAddressService}  from "./services/get-ipaddress.service";
+import { SectionComponent } from './section/section.component';
+import { ClockComponent } from './clock/clock.component';
+import { GetIPAddressComponent } from './get-ipaddress/get-ipaddress.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LocationTableComponent
+    LocationTableComponent,
+    SectionComponent,
+    ClockComponent,
+    GetIPAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +115,9 @@ import { LocationService } from './services/location.service';
     ReactiveFormsModule,
   ],
   providers: [
-    LocationService
+    LocationService,
+    SectionService,
+    GetIPAddressService
   ],
   bootstrap: [AppComponent]
 })

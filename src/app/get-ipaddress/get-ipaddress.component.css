@@ -1,0 +1,10 @@
+div {
+	width: 100%;
+	padding: 20px;
+}
+
+span.label {
+	float: left;
+	width: 80px;
+	padding-right: 5px;
+}

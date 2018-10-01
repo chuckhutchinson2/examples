@@ -24,6 +24,6 @@ export class LocationTableComponent implements OnInit {
 
   onRowClicked(row) {
     console.log('Row clicked: ', row);
-	}
+  }
 
 }

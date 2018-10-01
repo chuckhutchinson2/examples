@@ -1,39 +1,40 @@
 import {CollectionViewer, DataSource} from "@angular/cdk/collections";
-import {LocationElement} from "../location-element.model";
-
+import {Section} from "../section.model";
 import {Observable} from "rxjs/Observable";
-import {LocationService} from "./location.service";
+import {SectionService} from "./section.service";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {catchError, finalize} from "rxjs/operators";
 import {of} from "rxjs/observable/of";
 
-export class LocationDataSource implements DataSource<LocationElement> {
+export class SectionDataSource implements DataSource<Section> {
 
- 	private locationsSubject = new BehaviorSubject<LocationElement[]>([]);
+ 	private sectionSubject = new BehaviorSubject<Section[]>([]);
 
  	private loadingSubject = new BehaviorSubject<boolean>(false);
 
  	public loading$ = this.loadingSubject.asObservable();
 
-	constructor(private locationService: LocationService) {}
+	constructor(private sectionService: SectionService) {}
 
-    loadLocations() {
+    sections: Section[];
+
+    load(sectionJson) {
     	this.loadingSubject.next(true);
 
-        this.locationService.findAllLocations().pipe(
+        return this.sectionService.findAll(sectionJson).pipe(
                 catchError(() => of([])),
                 finalize(() => this.loadingSubject.next(false))
-            )
-            .subscribe(locations => this.locationsSubject.next(locations));
+            );
      }
 
-    connect(collectionViewer: CollectionViewer): Observable<LocationElement[]> {
+    connect(collectionViewer: CollectionViewer): Observable<Section[]> {
         console.log("Connecting data source");
-        return this.locationsSubject.asObservable();
+        return this.sectionSubject.asObservable();
     }
 
     disconnect(collectionViewer: CollectionViewer): void {
-        this.locationsSubject.complete();
+        this.sectionSubject.complete();
         this.loadingSubject.complete();
     }
+
 }
