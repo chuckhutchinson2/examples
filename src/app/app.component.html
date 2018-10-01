@@ -57,15 +57,23 @@
                 <mat-card-header>
                   <mat-card-title>Grid List</mat-card-title>
                 </mat-card-header>
-              <mat-card-content>
-                <mat-grid-list cols="2" rowHeight="2:1">
-                  <mat-grid-tile>1</mat-grid-tile>
-                  <mat-grid-tile>2</mat-grid-tile>
-                  <mat-grid-tile>3</mat-grid-tile>
-                  <mat-grid-tile>4</mat-grid-tile>
-                </mat-grid-list>
-              </mat-card-content>
+                <mat-card-content>
+                  <mat-grid-list cols="2" rowHeight="2:1">
+                    <mat-grid-tile>1</mat-grid-tile>
+                    <mat-grid-tile>2</mat-grid-tile>
+                    <mat-grid-tile>3</mat-grid-tile>
+                    <mat-grid-tile>4</mat-grid-tile>
+                  </mat-grid-list>
+                </mat-card-content>
               </mat-card> 
+            </mat-tab>
+            <mat-tab label='IP Information'>
+              <mat-card-header>
+                <mat-card-title>IP Information</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <app-get-ipaddress></app-get-ipaddress>
+              </mat-card-content>
             </mat-tab>
           </mat-tab-group>
         </mat-tab>
@@ -96,7 +104,7 @@
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
 
-  <span><app-get-ipaddress></app-get-ipaddress></span>
+  <span></span>
 </mat-toolbar>
   </div>
 
