@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
+import { AgmCoreModule } from '@agm/core';
 
 import {
   MatAutocompleteModule,
@@ -113,6 +114,11 @@ import { GetIPAddressComponent } from './get-ipaddress/get-ipaddress.component';
     MaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      // please get your own API key here:
+      // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+      apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
+    })
   ],
   providers: [
     LocationService,
